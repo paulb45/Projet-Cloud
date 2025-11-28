@@ -3,9 +3,20 @@ Installation du cluster Proxmox
 
 # Installation d'un PVE
 
+Nous avons réalisé l'installation du PVE via une clé bootable avec iso PROXMOX 9.
+
+Pendant l'installation, il est nécessaire de choisir le mode avancé. Dans le mode "avancé" à la sélection des disques. Choisir RAIDZ-1 afin de mettre en place un raid 5.
+Sélectionner les disques dur de la machine et valider.
+
+Les autres pages peuvent être laissées tel quel. Excepté le domain et l'adresse mail du compte admin qui doivent être modifiés.
+
 # Mise en place du cluster
 
+Réaliser depuis l'interface graphique.dans un des pve, dans l'onglet cluster, créer un cluster. Puis copier les "join information" que vous copirer dans les autres pve (dans l'onglet cluster).   
+
 # Mise en place du Ceph
+
+Dans l'onglet Ceph cliquer sur installer Ceph pour chaque PVE
 
 ## Noeud manager et monitor
 
@@ -67,4 +78,9 @@ Création du pool ceph pour stocker les disques des VMs directement dans l'inter
 Création d'un pool FS ceph directement sur Proxmox pour stocker les ISOs.
 
 
-### Haute disponibilité
+## Haute disponibilité
+
+Dans la base de données qui éberge les pve, navigeur vers HA.
+Dans le menu HA, ajouter une ressources pour chaqe VM que vous voulez être en haute dispo. Sélectionner le nombre de migration et de redémarrage souhaité.
+
+Dans le sous menu "Affinity rules", Pour chaque vm, ajouté un "HA node affinity rule". Sélectionner tout les pve et indiquer la priorité pour chacun.
