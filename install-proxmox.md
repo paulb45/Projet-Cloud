@@ -1,6 +1,8 @@
 Installation du cluster Proxmox
 ============================
 
+Mise en place d'un cluster Proxmox sur 4 Dell PowerEdge T340 avec 4 disques de 1To.
+
 # Installation d'un PVE
 
 Nous avons réalisé l'installation du PVE via une clé bootable avec iso PROXMOX 9.
